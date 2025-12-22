@@ -7,6 +7,9 @@
 #include "Bird.generated.h"
 
 class UCapsuleComponent;
+class USkeletalMeshComponent;
+class USpringArmComponent;
+class UCameraComponent;
 
 UCLASS()
 class SLASH_API ABird : public APawn
@@ -22,10 +25,19 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
-
+	void MoveForward(float Value);
+	void Turn(float Value);
+	void LookUp(float Value);
 private:
 	UPROPERTY(VisibleAnywhere)
 	UCapsuleComponent* Capsule;
 
+	UPROPERTY(VisibleAnywhere)
+	USkeletalMeshComponent* BirdMesh;
 
+	UPROPERTY(VisibleAnywhere)
+	USpringArmComponent* SpringArm;
+
+	UPROPERTY(VisibleAnywhere)
+	UCameraComponent* ViewCamera;
 };
