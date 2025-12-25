@@ -28,4 +28,7 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, Category = Movement)
 	bool IsFalling;
+
+	UFUNCTION(BlueprintCallable)
+	FRotator CalculateFootRotationFromNormal(const FVector& GroundNormal);
 };

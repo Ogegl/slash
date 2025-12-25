@@ -27,3 +27,9 @@ void USlashAnimInstance::NativeUpdateAnimation(float DeltaTime)
 		IsFalling = SlashCharacterMovement->IsFalling();
 	}
 }
+
+FRotator USlashAnimInstance::CalculateFootRotationFromNormal(const FVector& GroundNormal)
+{
+		FMatrix RotationMatrix = FRotationMatrix::MakeFromZ(GroundNormal);
+		return RotationMatrix.Rotator();
+}
