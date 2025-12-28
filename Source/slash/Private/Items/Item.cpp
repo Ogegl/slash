@@ -1,6 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "Items/Item.h"
 #include "slash/DebugMacros.h"
 #include "Components/SphereComponent.h"
@@ -62,5 +59,10 @@ void AItem::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	RunningTime += DeltaTime;
 	
+	if (ItemState == EItemState::EIS_Hovering)
+	{
+		AddActorWorldOffset(FVector(0.f, 0.f, TransformedSin()));
+		AddActorWorldRotation(FRotator(0.f, 90 * DeltaTime, 0.f));
+	}
 }
 
